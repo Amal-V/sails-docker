@@ -1,5 +1,5 @@
 FROM node:boron
-MAINTAINER Amal Varghese
+MAINTAINER Amal Varghese amalchirackal@gmail.com
 RUN npm install -g sails grunt
 COPY /app/package.json /app/
 WORKDIR /app/
