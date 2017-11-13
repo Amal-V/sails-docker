@@ -7,6 +7,10 @@ jobs:
        wget https://releases.hashicorp.com/terraform/0.10.8/terraform_0.10.8_linux_amd64.zip 
        unzip terraform_0.10.8_linux_amd64.zip
        ls -la terraform
+   - save_cache:
+       key: v1-repo-{{ .Environment.CIRCLE_SHA1 }}
+       paths:
+         - /usr/local/bin/terraform
  build:
    machine: true
    steps:
@@ -15,9 +19,11 @@ jobs:
  postbuild:
     machine: true
     steps:
+      - restore_cache:
+          key: v1-repo-{{ .Environment.CIRCLE_SHA1 }}
       - run : |
-          ls -la
-          ./terraform 
+          ls - la /usr/local/bin
+          terraform 
       
 workflows:
   version: 2
