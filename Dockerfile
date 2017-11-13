@@ -1,0 +1,10 @@
+FROM node:boron
+MAINTAINER Amal Varghese
+RUN npm install -g sails
+COPY /app/package.json /app/
+WORKDIR /app/
+RUN npm install
+COPY /app/*
+EXPOSE 1337
+ENTRYPOINT [ "/usr/bin/sails" ]
+CMD [ "lift" ]
