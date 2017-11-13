@@ -16,6 +16,7 @@ jobs:
     machine: true
     steps:
       - run : |
+          ls -la
           ./terraform 
       
 workflows:
