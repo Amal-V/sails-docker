@@ -16,6 +16,6 @@ workflows:
    version: 2
    Staging:
        jobs:
+         - prebuild
          - build:
-           requires:
-             - prebuild
+         
