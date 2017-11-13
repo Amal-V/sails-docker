@@ -16,14 +16,13 @@ jobs:
     steps:
       - run : |
           terraform 
-     
 workflows:
-   version: 2
-   Staging:
-       jobs:
-         - build:
-             requires:
-               - prebuild
-         - postbuild:
-             requires:
-               - build         
+  version: 2
+  build_and_test:
+    jobs:
+      - build
+          requires:
+            - prebuild
+      - postbuild
+          requires:
+            - build
