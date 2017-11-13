@@ -11,6 +11,11 @@ jobs:
    steps:
      - checkout
      - run: docker build -t sails-app:$CIRCLE_BRANCH .
+  postbuild:
+    machine: true
+    steps:
+      - run : |
+          terraform 
      
 workflows:
    version: 2
@@ -18,4 +23,5 @@ workflows:
        jobs:
          - prebuild
          - build
+         - postbuild
          
