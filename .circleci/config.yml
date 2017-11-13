@@ -11,7 +11,7 @@ jobs:
    steps:
      - checkout
      - run: docker build -t sails-app:$CIRCLE_BRANCH .
-  postbuild:
+ postbuild:
     machine: true
     steps:
       - run : |
