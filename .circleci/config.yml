@@ -24,7 +24,11 @@ jobs:
    machine: true
    steps:
      - checkout
-     - run: docker build -t sails-app:$CIRCLE_BRANCH .
+     - run: |
+         docker build -t sails-app:$CIRCLE_BRANCH .
+         docker login -p ${DOCKER_LOGIN} -u ${DOCKER_PASS}
+         docker push amal/sails-app:$CIRCLE_BRANCH
+     
  deployment:
    machine: true
    working_directory: terraform-example
@@ -39,10 +43,10 @@ workflows:
   version: 2
   build_and_test:
     jobs:
-      - getTerraform
-      - getDeploymentIaC
-      - deployment:
-          requires:
-            - getTerraform
-            - getDeploymentIaC
+      #- getTerraform
+      #- getDeploymentIaC
+      #- deployment:
+      #    requires:
+      #      - getTerraform
+      #      - getDeploymentIaC
       
