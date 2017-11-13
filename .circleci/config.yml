@@ -10,7 +10,7 @@ jobs:
    - save_cache:
        key: v1-repo-{{ .Environment.CIRCLE_SHA1 }}
        paths:
-         - /usr/local/bin/terraform
+         - ./terraform
  build:
    machine: true
    steps:
@@ -22,8 +22,8 @@ jobs:
       - restore_cache:
           key: v1-repo-{{ .Environment.CIRCLE_SHA1 }}
       - run : |
-          ls - la /usr/local/bin
-          terraform 
+          ls - la
+          ./terraform 
       
 workflows:
   version: 2
