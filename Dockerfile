@@ -6,5 +6,5 @@ WORKDIR /app/
 RUN npm install
 COPY /app/* /app/
 EXPOSE 1337
-ENTRYPOINT [ "/usr/bin/sails" ]
+ENTRYPOINT [ "/usr/bin/local/sails" ]
 CMD [ "lift" ]
