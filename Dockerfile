@@ -1,6 +1,6 @@
 FROM node:boron
 MAINTAINER Amal Varghese
-RUN npm install -g sails
+RUN npm install -g sails grunt
 COPY /app/package.json /app/
 WORKDIR /app/
 RUN npm install
