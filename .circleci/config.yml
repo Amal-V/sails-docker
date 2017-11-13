@@ -27,12 +27,12 @@ jobs:
      - run: docker build -t sails-app:$CIRCLE_BRANCH .
  deployment:
    machine: true
+   working_directory terraform-example
    steps:
      - restore_cache:
          key: tf-{{ .Environment.CIRCLE_SHA1 }}
      - restore_cache:
          key: iac-{{ .Environment.CIRCLE_SHA1 }}
-     - working_directory terraform-example
      - run: terraform plan
       
 workflows:
