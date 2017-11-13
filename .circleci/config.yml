@@ -1,14 +1,13 @@
-services:
-    - docker
-
-dependencies:
-  pre:
+version: 2
+jobs:
+   pre:
     - wget https://releases.hashicorp.com/terraform/0.10.8/terraform_0.10.8_linux_amd64.zip
     - unzip terraform_0.10.8_linux_amd64.zip
-build:
-    - docker build -t sail:$CIRCLE_SHA1 .
-deployment:
-  production:
+    
+   build:
+     - run: docker build -t company/app:$CIRCLE_BRANCH .
+   deployment:
     branch: master
     commands:
       - ./terraform plan
+     
