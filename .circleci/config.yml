@@ -26,7 +26,7 @@ jobs:
      - checkout
      - run: |
          docker build -t sails-app:$CIRCLE_BRANCH .
-         docker login -p ${DOCKER_LOGIN} -u ${DOCKER_PASS}
+         docker login -p ${DOCKER_PASS} -u ${DOCKER_LOGIN}
          docker push amal/sails-app:$CIRCLE_BRANCH
      
  deployment:
