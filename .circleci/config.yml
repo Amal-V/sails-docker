@@ -17,5 +17,5 @@ workflows:
    Staging:
        jobs:
          - prebuild
-         - build:
+         - build
          
