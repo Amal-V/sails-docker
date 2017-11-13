@@ -22,7 +22,7 @@ jobs:
       - restore_cache:
           key: v1-repo-{{ .Environment.CIRCLE_SHA1 }}
       - run : |
-          ls - la
+          ls -la
           ./terraform 
       
 workflows:
