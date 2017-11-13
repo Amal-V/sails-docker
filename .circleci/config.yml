@@ -32,7 +32,7 @@ jobs:
          key: tf-{{ .Environment.CIRCLE_SHA1 }}
      - restore_cache:
          key: iac-{{ .Environment.CIRCLE_SHA1 }}
-     - working_directory ./terraform-example/
+     - working_directory terraform-example
      - run: terraform plan
       
 workflows:
