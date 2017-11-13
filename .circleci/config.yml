@@ -12,10 +12,10 @@ jobs:
      - checkout
      - run: docker build -t sails-app:$CIRCLE_BRANCH .
      
- workflows:
-    version: 2
-    Staging:
-        jobs:
-          - build:
-            requires:
-              - prebuild
+workflows:
+   version: 2
+   Staging:
+       jobs:
+         - build:
+           requires:
+             - prebuild
