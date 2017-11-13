@@ -1,7 +1,9 @@
 version: 2
 jobs:
- pre-build:
-   - run: wget https://releases.hashicorp.com/terraform/0.10.8/terraform_0.10.8_linux_amd64.zip && unzip terraform_0.10.8_linux_amd64.zip
+ prebuild:
+   - run: |
+   wget https://releases.hashicorp.com/terraform/0.10.8/terraform_0.10.8_linux_amd64.zip 
+   unzip terraform_0.10.8_linux_amd64.zip
  build:
    machine: true
    steps:
