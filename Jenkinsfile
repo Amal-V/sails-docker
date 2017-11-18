@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-               docker build -t sails-docker .
+               sh 'docker build -t sails-docker .'
             }
         }
         stage('Test') {
