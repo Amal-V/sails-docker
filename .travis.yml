@@ -9,6 +9,3 @@ before_install:
   - docker build -t sales-docker .
 
 
-
-
-
